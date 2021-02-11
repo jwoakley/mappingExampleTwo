@@ -28,9 +28,9 @@ function setup() {
 function draw() {
   background(100, 100, 255);
 
-  mappingBall();
-  constrainedBallOne(); 
-  constrainedBallTwo(); 
+  mappingBall();    //free floating blue ball that red balls are mapped to
+  constrainedBallOne();   //left side red ball within rectangle
+  constrainedBallTwo();   //right side red ball within rectangle
 }
 
 function mappingBall() {
@@ -39,15 +39,15 @@ function mappingBall() {
   ellipse(mouseX, mouseY, 20, 20);
 }
 
-function constrainedBallOne() {
+function constrainedBallOne() {    //left side rect and ball
 
-  let xlo = 410;
-  let xhi = 690;
-  let ylo = 410;
-  let yhi = 640;
+  let xlo = 410;   //start x coordinate of rect + 1/2 red ball diameter
+  let xhi = 690;   //end x coordinate of rect - 1/2 red ball diameter
+  let ylo = 410;   //start y coordinate of rect + 1/2 red ball diameter
+  let yhi = 640;   //end y coordinate of rect - 1/2 red ball diameter
 
-  let mx = map(mouseX, 0, width, xlo, xhi, true);
-  let my = map(mouseY, 0, height, ylo, yhi, true);
+  let mx = map(mouseX, 0, width, xlo, xhi, true);    //true is added at the end of the mapping
+  let my = map(mouseY, 0, height, ylo, yhi, true);   //in order to enable the constrain
 
   //rectangle holding red ball
   fill(255);
@@ -59,12 +59,12 @@ function constrainedBallOne() {
   ellipse(mx, my, 20, 20);
 }
 
-function constrainedBallTwo() {
+function constrainedBallTwo() {    //right side rect and ball
 
-  let xlo = 905;
-  let xhi = 970;
-  let ylo = 205;
-  let yhi = 695;
+  let xlo = 905;    //start x coordinate of rect + 1/2 red ball diameter
+  let xhi = 970;    //end x coordinate of rect - 1/2 red ball diameter
+  let ylo = 205;    //start y coordinate of rect + 1/2 red ball diameter
+  let yhi = 695;    //end y coordinate of rect - 1/2 red ball diameter
 
   let mx = map(mouseX, 0, width, xlo, xhi, true);
   let my = map(mouseY, 0, height, ylo, yhi, true);
